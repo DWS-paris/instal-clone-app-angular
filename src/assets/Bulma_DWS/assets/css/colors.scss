@@ -1,0 +1,60 @@
+/* 
+Global color varaibles from Bulma
+*/
+    // Primary colors (turquoise)
+    $brand-primary-color: hsl(147, 76%, 54%) !default;
+    $brand-primary-color-dark: hsl(147, 76%, 25%) !default;
+    $brand-primary-color-light: hsl(147, 76%, 95%) !default;
+
+    $primary: $brand-primary-color !default;
+    $primary-invert: findColorInvert($primary) !default;
+    $primary-light: $brand-primary-color-light !default;
+    $primary-dark: $brand-primary-color-dark !default;
+
+    // Secondary colors (cyan)
+    $brand-secondary-color: hsl(80, 76%, 47%) !default;
+    $brand-secondary-color-dark: hsl(80, 76%, 17%) !default;
+    $brand-secondary-color-light: hsl(80, 76%, 87%) !default;
+
+    $secondary: $brand-secondary-color !default;
+    $secondary-invert: findColorInvert($secondary) !default;
+    $secondary-light: $brand-secondary-color-light !default;
+    $secondary-dark: $brand-secondary-color-dark !default;
+
+    // Tercary colors (purple)
+    $brand-tercary-color: hsl(186, 43%, 18%) !default;
+    $brand-tercary-color-dark: hsl(186, 43%, 0%) !default;
+    $brand-tercary-color-light: hsl(186, 43%, 58%) !default;
+
+    $tercary: $brand-tercary-color !default;
+    $tercary-invert: findColorInvert($tercary) !default;
+    $tercary-light: $brand-tercary-color-light !default;
+    $tercary-dark: $brand-tercary-color-dark !default;
+
+    // Greyscale colors
+    $black:         hsl(0, 0%, 4%) !default;
+    $black-bis:     hsl(0, 0%, 7%) !default;
+    $black-ter:     hsl(0, 0%, 14%) !default;
+
+    $grey-darker:   hsl(0, 0%, 21%) !default;
+    $grey-dark:     hsl(0, 0%, 29%) !default;
+    $grey:          hsl(0, 0%, 48%) !default;
+    $grey-light:    hsl(0, 0%, 71%) !default;
+    $grey-lighter:  hsl(0, 0%, 86%) !default;
+    $grey-lightest: hsl(0, 0%, 93%) !default;
+
+    $white-ter:     hsl(0, 0%, 96%) !default;
+    $white-bis:     hsl(0, 0%, 98%) !default;
+    $white:         hsl(0, 0%, 100%) !default;
+    
+    // CSS colors
+    $turquoise:     $primary !default; //=> Is primary color
+    $cyan:          $secondary !default; //=> Is secondary color
+    $purple:        $tercary !default; //=> Is tercary color
+
+    $orange:        hsl(14,  100%, 53%) !default;
+    $yellow:        hsl(44,  100%, 77%) !default;
+    $green:         rgb(24, 228, 136) !default;
+    $blue:          hsl(229, 53%,  53%) !default;
+    $red:           hsl(348, 86%, 61%) !default;
+//

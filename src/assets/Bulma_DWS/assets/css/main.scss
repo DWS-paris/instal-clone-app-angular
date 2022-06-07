@@ -1,0 +1,29 @@
+/* 
+SCSS configuration
+*/
+    // Chart set
+    @charset "utf-8";
+
+    // Import a Google Font
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+//
+
+/* 
+Import Design Sustem files
+*/
+    @import "./colors";
+//
+
+
+/* 
+Import only what you need from Bulma
+*/
+    @import "./bulma/sass/utilities/_all";
+    @import "./bulma/sass/base/_all";
+    @import "./bulma/sass/elements/_all";
+    @import "./bulma/sass/form/_all";
+    @import "./bulma/sass/components/_all";
+    @import "./bulma/sass/grid/_all";
+    @import "./bulma/sass/helpers/_all";
+    @import "./bulma/sass/layout/_all";
+//

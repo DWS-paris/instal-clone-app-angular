@@ -1,0 +1,12 @@
+{
+  "name": "smartpreuve-design-system",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "scripts": {
+    "scss-compile": "sass assets/css/main.scss:../css/main.css",
+    "scss-watch": "sass --watch assets/css/main.scss:../css/main.css"
+  },
+  "keywords": [],
+  "license": "ISC"
+}
