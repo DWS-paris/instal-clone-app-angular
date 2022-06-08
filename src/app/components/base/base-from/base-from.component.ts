@@ -1,10 +1,13 @@
 // Imports
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-base-from',
   template: `
-    <form *ngIf="cmpFormvalue">
+    <form 
+      *ngIf="cmpFormvalue"
+      
+    >
       <h2 class="title is-size-4">{{cmpFormvalue.title}}</h2>
 
       <!-- Angular DOM loop: *ngFor -->
@@ -15,7 +18,7 @@ import { Component, OnInit, Input } from '@angular/core';
         <label 
           class="label"
           [innerText]="item.label"
-          [for]="'item-' + idx"
+          [for]="'item-' +item.name + '-' + idx"
         ></label>
         
         <input 
@@ -23,14 +26,16 @@ import { Component, OnInit, Input } from '@angular/core';
           [type]="item.type" 
           [min]="item.min"
           [required]="item.required"
-          [name]="'item-' + idx"
-          [id]="'item-' + idx"
+          [name]="item.name"
+          [id]="'item-' +item.name + '-' + idx"
+          [(ngModel)]="item.value"
         >
       </fieldset>
 
       <!-- Display child component -->
       <app-base-call-to-action
         [cmpItem]="cmpButton"
+        (onClick)="computeFormValue(cmpFormvalue.fieldsets)"
       ></app-base-call-to-action>
     </form>
   `,
@@ -40,7 +45,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BaseFromComponent implements OnInit {
 
   // Bind value from parent component
-  @Input() cmpFormvalue: any
+  @Input() cmpFormvalue: any;
+  @Output() onSubmit: EventEmitter<Object> = new EventEmitter()
 
   // Define static properties
   public cmpButton: any;
@@ -54,6 +60,19 @@ export class BaseFromComponent implements OnInit {
       isfull: true,
       isprimary: true,
     }
+  }
+
+  public computeFormValue(fieldsets: Array<any>){
+    // Extarct form value
+    let returnedObject = {};
+
+    // Get each form fieldset
+    for( let item of fieldsets ){
+      returnedObject[item.name] = item.value
+    }
+
+    // Return computed value
+    this.onSubmit.emit( returnedObject );
   }
 
   /* 

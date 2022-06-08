@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
         <app-base-from
           class="mb-2"
           [cmpFormvalue]="cmpStep === 'login' ? cmpLoginFrom : cmpRegisterFrom"
+          (onSubmit)="onSubmit(cmpStep, $event)"
         >
         </app-base-from>
 
@@ -41,14 +42,18 @@ export class HomeViewComponent implements OnInit {
         {
           label: `Email`,
           type: `email`,
+          name: `email`,
           required: true,
           min: 5,
+          value: 'juju@juju.com'
         },
         {
           label: `Password`,
           type: `password`,
+          name: `password`,
           required: true,
           min: 5,
+          value: null
         }
       ]
     }
@@ -57,30 +62,38 @@ export class HomeViewComponent implements OnInit {
       title: `Create your account`,
       submit: `Register`,
       fieldsets: [
-          {
+        {
           label: `Name`,
           type: `text`,
+          name: `name`,
           required: true,
           min: 2,
-          },
-          {
+          value: null
+        },
+        {
           label: `Email`,
           type: `email`,
+          name: `email`,
           required: true,
           min: 5,
-          },
-          {
+          value: null
+        },
+        {
           label: `Password`,
           type: `password`,
+          name: `password`,
           required: true,
           min: 5,
-          },
-          {
+          value: null
+        },
+        {
           label: `Repeate password`,
           type: `password`,
+          name: `password-repeate`,
           required: true,
           min: 5,
-          }
+          value: null
+        }
       ]
     }
   }
@@ -100,6 +113,21 @@ export class HomeViewComponent implements OnInit {
       isfull: false,
       isprimary: false,
       action: this.cmpStep === 'login' ? 'register' : 'login'
+    }
+  }
+
+  // Set method to bind 'submit' event on form
+  public onSubmit(step: String, event: any){
+    // Check register form
+    if( step === 'register' ){
+      if( event.password === event['password-repeate'] ){
+        delete event['password-repeate'];
+        console.log('[DEBUG] onSubmit()', step, event)
+      }
+      else{ alert(`Password missmatch`) }
+    }
+    else{
+      console.log('[DEBUG] onSubmit()', step, event)
     }
   }
 
